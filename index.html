@@ -1,48 +1,43 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login Form with Nature Background</title>
+    <title>Stylish Login Page</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background: url('https://example.com/nature.jpg') no-repeat center center fixed;
-            background-size: cover;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             margin: 0;
-            color: #fff;
         }
         .login-container {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 40px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            padding: 30px;
             border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             width: 300px;
-            text-align: center;
         }
-        .login-container h2 {
+        .login-container h1 {
+            text-align: center;
             margin-bottom: 20px;
-            color: #fff;
+            color: #333;
         }
         .login-container input[type="text"],
         .login-container input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
-            border: none;
+            border: 1px solid #ccc;
             border-radius: 5px;
-            box-sizing: border-box;
-            background-color: rgba(255, 255, 255, 0.2);
-            color: #fff;
         }
         .login-container input[type="submit"] {
             width: 100%;
             padding: 10px;
-            background-color: #4CAF50;
+            background-color: #ff7e5f;
             border: none;
             border-radius: 5px;
             color: white;
@@ -51,6 +46,66 @@
             transition: background-color 0.3s;
         }
         .login-container input[type="submit"]:hover {
-            background-color: #45a049;
+            background-color: #feb47b;
         }
-        .login-container
+        .login-container a {
+            text-decoration: none;
+            color: #ff7e5f;
+            display: block;
+            text-align: center;
+            margin-top: 10px;
+            transition: color 0.3s;
+        }
+        .login-container a:hover {
+            color: #feb47b;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <div class="error" id="errorMessage">Please fill in all fields.</div>
+            <input type="submit" value="Login">
+            <a href="#" id="forgotPassword">Forgot Password?</a>
+            <a href="#" id="forgotUsername">Forgot Username?</a>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+            const errorMessage = document.getElementById('errorMessage');
+
+            if (username === '' || password === '') {
+                errorMessage.style.display = 'block';
+            } else {
+                errorMessage.style.display = 'none';
+                alert('Form submitted successfully!');
+                // Here you can add code to handle the form submission, e.g., sending data to the server.
+            }
+        });
+
+        document.getElementById('forgotPassword').addEventListener('click', function(event) {
+            event.preventDefault();
+            alert('Redirect to forgot password page.');
+            // Here you can add code to handle the forgot password logic, e.g., redirecting to a forgot password page.
+        });
+
+        document.getElementById('forgotUsername').addEventListener('click', function(event) {
+            event.preventDefault();
+            alert('Redirect to forgot username page.');
+            // Here you can add code to handle the forgot username logic, e.g., redirecting to a forgot username page.
+        });
+    </script>
+</body>
+</html>
