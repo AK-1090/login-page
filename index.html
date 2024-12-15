@@ -1,112 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Stylish Login Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: url('pexels-sohi-807598.jpg') no-repeat center center fixed;
-            background-size: cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-        }
-        .login-container {
-            background-color: rgba(255, 255, 255, 0.9);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-        .login-container h1 {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #333;
-        }
-        .login-container input[type="text"],
-        .login-container input[type="password"] {
-            width: 100%;
-            padding: 10px;
-            margin: 10px 0;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        .login-container input[type="submit"] {
-            width: 100%;
-            padding: 10px;
-            background-color: #ff7e5f;
-            border: none;
-            border-radius: 5px;
-            color: white;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        .login-container input[type="submit"]:hover {
-            background-color: #feb47b;
-        }
-        .login-container a {
-            text-decoration: none;
-            color: #ff7e5f;
-            display: block;
-            text-align: center;
-            margin-top: 10px;
-            transition: color 0.3s;
-        }
-        .login-container a:hover {
-            color: #feb47b;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Notes App</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>Login</h1>
-        <form id="loginForm">
-            <input type="text" id="username" placeholder="Username" required>
-            <input type="password" id="password" placeholder="Password" required>
-            <div class="error" id="errorMessage">Please fill in all fields.</div>
-            <input type="submit" value="Login">
-            <a href="#" id="forgotPassword">Forgot Password?</a>
-            <a href="#" id="forgotUsername">Forgot Username?</a>
-        </form>
-    </div>
-
-    <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-            const errorMessage = document.getElementById('errorMessage');
-
-            if (username === '' || password === '') {
-                errorMessage.style.display = 'block';
-            } else {
-                errorMessage.style.display = 'none';
-                alert('Form submitted successfully!');
-                // Here you can add code to handle the form submission, e.g., sending data to the server.
-            }
-        });
-
-        document.getElementById('forgotPassword').addEventListener('click', function(event) {
-            event.preventDefault();
-            alert('Redirect to forgot password page.');
-            // Here you can add code to handle the forgot password logic, e.g., redirecting to a forgot password page.
-        });
-
-        document.getElementById('forgotUsername').addEventListener('click', function(event) {
-            event.preventDefault();
-            alert('Redirect to forgot username page.');
-            // Here you can add code to handle the forgot username logic, e.g., redirecting to a forgot username page.
-        });
-    </script>
+  <div class="app-container">
+    <h1>📝 Advanced Notes App</h1>
+    <form id="note-form">
+      <input type="text" id="note-title" placeholder="Enter title" required>
+      <textarea id="note-description" placeholder="Enter description" required></textarea>
+      <button type="submit">Add Note</button>
+    </form>
+    <div id="notes-container" class="notes-grid"></div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
